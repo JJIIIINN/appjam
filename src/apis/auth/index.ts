@@ -8,6 +8,7 @@ const router = '/auth';
 
 export const useLogin = (signInData: SignInData) => {
     const [, setCookies] = useCookies();
+    const globalThis = window as any;
 
     return useMutation({
         mutationFn: () => axios.post(`${import.meta.env.VITE_BASE_URL}${router}/signin`, signInData),
@@ -21,6 +22,11 @@ export const useLogin = (signInData: SignInData) => {
                 setCookies('access_token', res.data.access_token, {
                     expires: accessExpired,
                 });
+                globalThis.android?.getToken(
+                    JSON.stringify({
+                        token: '토큰이야 토큰 토큰 토큰',
+                    })
+                );
             } else {
                 toast.error('해당 계정은 사용할 수 없어요.');
             }
