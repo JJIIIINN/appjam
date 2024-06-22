@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const globalWindow = window as any;
     const [tokenSt, setTokenSt] = useState<string>('');
 
-    globalWindow.test = (token: string) => {
-        setTokenSt(token);
-    };
+    useEffect(() => {
+        globalWindow.test = (token: string) => {
+            setTokenSt(token);
+        };
+    }, []);
 
     return (
         <div>
