@@ -21,7 +21,7 @@ export const useLogin = (signInData: SignInData) => {
             setCookies('access_token', res.data.access_token, {
                 expires: accessExpired,
             });
-            globalThis.android?.getToken(JSON.stringify(res));
+            globalThis.android?.getToken(JSON.stringify(res.data));
             toast.success('로그인에 성공하였습니다.');
         },
         onError: (err: AxiosError<AxiosError>) => {
