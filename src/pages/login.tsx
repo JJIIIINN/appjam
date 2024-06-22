@@ -36,7 +36,7 @@ export const LoginPage = () => {
                     disabled={!form.name || !form.password}
                     onClick={() => {
                         toast.success('로그인에 성공하였습니다.');
-                        globalThis.android?.getToken(r);
+                        globalThis.android?.getToken();
                     }}
                 >
                     로그인
