@@ -5,7 +5,8 @@ function App() {
     const globalWindow = window as any;
     const [tokenSt, setTokenSt] = useState<string>('');
 
-    const test = (token) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const test = (token: string) => {
         setTokenSt(token);
     };
 
