@@ -9,7 +9,12 @@ function App() {
         setTokenSt(token);
     };
 
-    return <div>{tokenSt}</div>;
+    return (
+        <div>
+            <div>승훈 화이팅~</div>
+            <div>{tokenSt}</div>
+        </div>
+    );
 }
 
 export default App;
