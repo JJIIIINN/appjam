@@ -23,9 +23,7 @@ export const useLogin = (signInData: SignInData) => {
                     expires: accessExpired,
                 });
                 globalThis.android?.getToken(
-                    JSON.stringify({
-                        token: '토큰이야 토큰 토큰 토큰',
-                    })
+                    JSON.stringify(res)
                 );
             } else {
                 toast.error('해당 계정은 사용할 수 없어요.');
