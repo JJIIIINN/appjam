@@ -13,21 +13,15 @@ export const useLogin = (signInData: SignInData) => {
     return useMutation({
         mutationFn: () => axios.post(`${import.meta.env.VITE_BASE_URL}${router}/signin`, signInData),
         onSuccess: (res: AxiosResponse) => {
-            if (res.data.authority === 'TEACHER') {
-                const accessExpired = new Date(res.data.access_expires_at);
-                const refreshExpired = new Date(res.data.refresh_expires_at);
-                setCookies('refresh_token', res.data.refresh_token, {
-                    expires: refreshExpired,
-                });
-                setCookies('access_token', res.data.access_token, {
-                    expires: accessExpired,
-                });
-                globalThis.android?.getToken(
-                    JSON.stringify(res)
-                );
-            } else {
-                toast.error('해당 계정은 사용할 수 없어요.');
-            }
+            const accessExpired = new Date(res.data.access_expires_at);
+            const refreshExpired = new Date(res.data.refresh_expires_at);
+            setCookies('refresh_token', res.data.refresh_token, {
+                expires: refreshExpired,
+            });
+            setCookies('access_token', res.data.access_token, {
+                expires: accessExpired,
+            });
+            globalThis.android?.getToken(JSON.stringify(res));
             toast.success('로그인에 성공하였습니다.');
         },
         onError: (err: AxiosError<AxiosError>) => {
