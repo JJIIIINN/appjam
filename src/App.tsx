@@ -6,7 +6,11 @@ function App() {
     const globalThis = window as any;
 
     useEffect(() => {
-        globalThis.android.getToken('토큰토큰토큰토큰토큰토큰토큰토큰');
+        globalThis.android.getToken(
+            JSON.stringify({
+                token: '토큰이야 토큰 토큰 토큰',
+            })
+        );
     }, []);
 
     return (
