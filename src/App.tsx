@@ -5,15 +5,16 @@ function App() {
     const globalWindow = window as any;
     const [tokenSt, setTokenSt] = useState<string>('');
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const test = (token: string) => {
         setTokenSt(token);
     };
 
     useEffect(() => {
+        test('');
         globalWindow.test = (token: string) => {
             setTokenSt(token);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
