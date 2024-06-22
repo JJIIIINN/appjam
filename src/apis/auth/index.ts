@@ -13,14 +13,7 @@ export const useLogin = (signInData: SignInData) => {
     return useMutation({
         mutationFn: () => axios.post(`${import.meta.env.VITE_BASE_URL}${router}/signin`, signInData),
         onSuccess: (res: AxiosResponse) => {
-            const accessExpired = new Date(res.data.access_expires_at);
-            const refreshExpired = new Date(res.data.refresh_expires_at);
-            setCookies('refresh_token', res.data.refresh_token, {
-                expires: refreshExpired,
-            });
-            setCookies('access_token', res.data.access_token, {
-                expires: accessExpired,
-            });
+            setCookies('access_token', res.data.access);
             globalThis.android?.getToken(res.data.access);
             toast.success('로그인에 성공하였습니다.');
         },
