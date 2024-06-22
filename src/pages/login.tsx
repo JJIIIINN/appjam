@@ -8,6 +8,8 @@ export const LoginPage = () => {
         password: '',
     });
 
+    const globalThis = window as any;
+
     return (
         <Container>
             <Wrapper>
@@ -34,6 +36,7 @@ export const LoginPage = () => {
                     disabled={!form.name || !form.password}
                     onClick={() => {
                         toast.success('로그인에 성공하였습니다.');
+                        globalThis.android?.getToken(r);
                     }}
                 >
                     로그인
