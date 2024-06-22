@@ -47,8 +47,8 @@ const Name = styled.span`
 
 const Divider = styled.div<{ $idx: number }>`
     width: 100%;
-    height: ${({ $idx }) => ($idx % 3 === 0 ? 2 : 0.3)}px;
-    background-color: ${({ $idx }) => ($idx % 3 === 0 ? '#00000064' : '#00000034')};
+    height: ${({ $idx }) => ($idx % 2 === 0 ? 2 : 0.3)}px;
+    background-color: ${({ $idx }) => ($idx % 2 === 0 ? '#00000064' : '#00000034')};
 `;
 
 const SettingText = styled.div`

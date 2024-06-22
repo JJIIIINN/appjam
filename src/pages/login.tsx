@@ -1,3 +1,4 @@
+import { Logo } from '@/assets/images';
 import { useForm } from '@/hooks';
 import toast from 'react-hot-toast';
 import { styled } from 'styled-components';
@@ -13,7 +14,9 @@ export const LoginPage = () => {
     return (
         <Container>
             <Wrapper>
-                <TitleText>로그인</TitleText>
+                <LogoImg src={Logo} alt="" height={58} width={60} />
+                <TitleText>도파민도 건강하게!</TitleText>
+                <BigDivider />
                 <TextInput
                     type="text"
                     placeholder="아이디 또는 이메일"
@@ -68,10 +71,23 @@ const Wrapper = styled.div`
     width: 310px;
 `;
 
+const LogoImg = styled.img`
+    margin-left: -10px;
+    margin-bottom: 4px;
+`;
+
+const BigDivider = styled.div`
+    height: 1px;
+    width: 310px;
+    background-color: #ee3c3c;
+    margin-bottom: 58px;
+    margin-top: 8px;
+`;
+
 const TitleText = styled.h1`
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: 80px;
+    color: #959595;
 `;
 
 const TextInput = styled.input`
@@ -119,14 +135,14 @@ const CheckBoxLabel = styled.span`
 
 const SubmitBtn = styled.button`
     width: 100%;
-    height: 60px;
+    height: 43px;
     background-color: #ee3c3c;
     border: none;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 500;
     color: white;
-    margin: 84px 0 30px 0;
+    margin: 58px 0 30px 0;
     &:disabled {
         opacity: 0.5;
     }
@@ -140,13 +156,13 @@ const EtcWrapper = styled.div`
 `;
 
 const EtcText = styled.span`
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     color: #00000064;
 `;
 
 const Divider = styled.div`
-    height: 24px;
+    height: 16px;
     width: 1px;
     background-color: #00000032;
 `;

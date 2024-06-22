@@ -1,9 +1,5 @@
 export const SettingList = [
     {
-        name: '아이디 확인',
-        to: '',
-    },
-    {
         name: '아이디 수정',
         to: '',
     },
@@ -16,23 +12,7 @@ export const SettingList = [
         to: '',
     },
     {
-        name: '알림',
-        to: '',
-    },
-    {
         name: '내 활동',
-        to: '',
-    },
-    {
-        name: '고객센터',
-        to: '',
-    },
-    {
-        name: '지원',
-        to: '',
-    },
-    {
-        name: '도움',
         to: '',
     },
     {
