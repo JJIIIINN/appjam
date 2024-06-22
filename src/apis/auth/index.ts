@@ -14,6 +14,7 @@ export const useLogin = (signInData: SignInData) => {
         mutationFn: () => axios.post(`${import.meta.env.VITE_BASE_URL}${router}/signin`, signInData),
         onSuccess: (res: AxiosResponse) => {
             setCookies('access_token', res.data.access);
+            console.log(res.data.access);
             globalThis.android?.getToken(res.data.access);
             toast.success('로그인에 성공하였습니다.');
         },

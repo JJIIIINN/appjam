@@ -1,5 +1,5 @@
-import { useLogin } from '@/apis';
 import { useForm } from '@/hooks';
+import toast from 'react-hot-toast';
 import { styled } from 'styled-components';
 
 export const LoginPage = () => {
@@ -7,8 +7,6 @@ export const LoginPage = () => {
         name: '',
         password: '',
     });
-
-    const { mutate } = useLogin(form);
 
     return (
         <Container>
@@ -35,7 +33,7 @@ export const LoginPage = () => {
                 <SubmitBtn
                     disabled={!form.name || !form.password}
                     onClick={() => {
-                        mutate();
+                        toast.success('로그인에 성공하였습니다.');
                     }}
                 >
                     로그인
