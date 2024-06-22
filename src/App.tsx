@@ -5,12 +5,7 @@ function App() {
     const globalWindow = window as any;
     const [tokenSt, setTokenSt] = useState<string>('');
 
-    const test = (token: string) => {
-        setTokenSt(token);
-    };
-
     useEffect(() => {
-        test('');
         globalWindow.test = (token: string) => {
             setTokenSt(token);
         };
