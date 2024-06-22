@@ -21,11 +21,10 @@ export const useLogin = (signInData: SignInData) => {
             setCookies('access_token', res.data.access_token, {
                 expires: accessExpired,
             });
-            globalThis.android?.getToken(JSON.stringify(res.data));
+            globalThis.android?.getToken(res.data.access);
             toast.success('로그인에 성공하였습니다.');
         },
         onError: (err: AxiosError<AxiosError>) => {
-            console.log(err);
             if (err.response) {
                 switch (err.response.status) {
                     case 400:
