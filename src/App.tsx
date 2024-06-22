@@ -1,17 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
-    const [tokenSt, setTokenSt] = useState<string>('');
+    useEffect(() => {
+        const eventFromAndroid = async (event: any) => {
+            return event.detail.data;
+        };
 
-    window.addEventListener('android', async (e: any) => {
-        setTokenSt(e.token);
-    });
+        window.addEventListener('javascriptFunction', eventFromAndroid);
+
+        return () => {
+            window.removeEventListener('javascriptFunction', eventFromAndroid);
+        };
+    }, []);
 
     return (
         <div>
             <div>승훈 화이팅~</div>
-            <div>{tokenSt}</div>
         </div>
     );
 }
